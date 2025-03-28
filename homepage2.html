@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            background-color: #f3f4f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #2f584f, #ff6f61);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            cursor: url('https://cdn.iconscout.com/icon/free/png-256/arrow-228-459951.png'), auto;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        .title {
+            font-size: 60px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2f584f;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .text {
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+            background-color: #f9fafb;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .text:focus {
+            border-color: #2f584f;
+            background-color: #e9f5f2;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button input {
+            padding: 15px 30px;
+            width: 250px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #customize {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        #customize:hover {
+            background-color: #ff8a7d;
+            transform: scale(1.05);
+
+        }
+
+        /* Real-time validation */
+        .invalid-input {
+            border-color: red;
+            background-color: #f8d7da;
+        }
+
+        .valid-input {
+            border-color: green;
+            background-color: #d4edda;
+        }
+
+     
+        .loading.active {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="title">PhyScizz</h1>
+    <input type="text" class="text" placeholder="Enter Player Name" id="playerNameInput">
+    <div class="divider"></div>
+    <div class="button">
+        <input type="button" id="customize" value="Play" onclick="location.href='custom.html';">
+    </div>
+    <div class="loading" id="loadingSpinner">
+       
+    </div>
+</div>
+
+<script>
+    const playerNameInput = document.getElementById('playerNameInput');
+    const playButton = document.getElementById('play');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+
+    playerNameInput.addEventListener('input', function() {
+        const playerName = playerNameInput.value.trim();
+
+        if (playerName) {
+            playerNameInput.classList.remove('invalid-input');
+            playerNameInput.classList.add('valid-input');
+            playButton.disabled = false;
+        } else {
+            playerNameInput.classList.remove('valid-input');
+            playerNameInput.classList.add('invalid-input');
+            playButton.disabled = true;
+        }
+    });
+
+    function playGame() {
+        const playerName = playerNameInput.value.trim();
+        if (playerName) {
+            loadingSpinner.classList.add('active');
+            setTimeout(() => {
+                window.location.href = "questions.html";
+            }, 0); // simulate loading
+        }
+    }
+</script>
+
+</body>
+</html>
