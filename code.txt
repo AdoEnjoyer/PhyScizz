@@ -1,0 +1,1236 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Selection</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            background-color: #f3f4f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #0087c5, #ff6f61);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            cursor: url('https://cdn.iconscout.com/icon/free/png-256/arrow-228-459951.png'), auto;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            text-align: center;
+            color: white;
+        }
+
+        /* Enhanced styling for h2 headers */
+        .h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .h2:hover {
+            color: #ffeb3b;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+        }
+
+        .characters {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .characters2 {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .character {
+            width: 150px;
+            height: 200px;
+            background-color: #004dc0;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .character:hover {
+            transform: scale(1.1);
+        }
+
+        .character img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .selected {
+            border: 3px solid yellow;
+        }
+
+        /* Enhanced "Next" Button Styling */
+        #nextBtn {
+            background-color: #ffeb3b;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+        }
+
+        #nextBtn:hover {
+            background-color: #ff9800;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        #nextBtn:focus {
+            outline: none;
+        }
+
+        .h1 {
+            color: #2f584f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="h1">SELECT YOUR CHARACTER</h1>
+        <h2 class="h2">PLAYER 1</h2>
+        <div class="characters">
+            <div class="character" onclick="selectCharacter(this, 'Character1', '1.png', 'player1')">
+                <img src="1.png" alt="Character 1">
+                <p>Character 1</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character2', '2.png', 'player1')">
+                <img src="2.png" alt="Character 1">
+                <p>Character 2</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character3', '3.png', 'player1')">
+                <img src="3.png" alt="Character 2">
+                <p>Character 3</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character4', '4.png', 'player1')">
+                <img src="4.png" alt="Character 3">
+                <p>Character 4</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character5', '5.png', 'player1')">
+                <img src="5.png" alt="Character 4">
+                <p>Character 5</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character6', '6.png', 'player1')">
+                <img src="6.png" alt="Character 5">
+                <p>Character 6</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character7', '7.png', 'player1')">
+                <img src="7.png" alt="Character 6">
+                <p>Character 7</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character8', '8.png', 'player1')">
+                <img src="8.png" alt="Character 7">
+                <p>Character 8</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character9', '9.png', 'player1')">
+                <img src="9.png" alt="Character 8">
+                <p>Character 9</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character10', '10.png', 'player1')">
+                <img src="10.png" alt="Character 9">
+                <p>Character 10 </p>
+            </div>
+        </div>
+
+        <h2 class="h2">PLAYER 2</h2>
+        <div class="characters2">
+            <div class="character" onclick="selectCharacter(this, 'Character1', '1.png', 'player2')">
+                <img src="1.png" alt="Character 1">
+                <p>Character 1</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character2', '2.png', 'player2')">
+                <img src="2.png" alt="Character 1">
+                <p>Character 2</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character3', '3.png', 'player2')">
+                <img src="3.png" alt="Character 2">
+                <p>Character 3</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character4', '4.png', 'player2')">
+                <img src="4.png" alt="Character 3">
+                <p>Character 4</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character5', '5.png', 'player2')">
+                <img src="5.png" alt="Character 4">
+                <p>Character 5</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character6', '6.png', 'player2')">
+                <img src="6.png" alt="Character 5">
+                <p>Character 6</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character7', '7.png', 'player2')">
+                <img src="7.png" alt="Character 6">
+                <p>Character 7</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character8', '8.png', 'player2')">
+                <img src="8.png" alt="Character 7">
+                <p>Character 8</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character9', '9.png', 'player2')">
+                <img src="9.png" alt="Character 8">
+                <p>Character 9</p>
+            </div>
+            <div class="character" onclick="selectCharacter(this, 'Character10', '10.png', 'player2')">
+                <img src="10.png" alt="Character 9">
+                <p>Character 10 </p>
+            </div>
+        </div>
+        <button id="nextBtn" style="display:none;" onclick="goToGame()">Next</button>
+    </div>
+
+    <script>
+        function selectCharacter(element, characterName, characterImage, player) {
+            // Store the selected character and image in localStorage based on the player
+            localStorage.setItem(player + 'Character', JSON.stringify({ name: characterName, image: characterImage }));
+    
+            // Add selected class to the clicked character
+            const characters = player === 'player1' ? document.querySelectorAll('.characters .character') : document.querySelectorAll('.characters2 .character');
+            characters.forEach(char => char.classList.remove('selected'));
+            element.classList.add('selected');
+    
+            // Check if both Player 1 and Player 2 have made selections
+            const player1Character = localStorage.getItem('player1Character');
+            const player2Character = localStorage.getItem('player2Character');
+    
+            // If both players have selected a character, show the Next button
+            if (player1Character && player2Character) {
+                document.getElementById('nextBtn').style.display = 'block';
+            } else {
+                document.getElementById('nextBtn').style.display = 'none';
+            }
+        }
+    
+        function goToGame() {
+            // Redirect to the game page when the "Next" button is clicked
+            window.location.href = "questions.html"; // Make sure this is the correct game page URL
+        }
+    </script>    
+</body>
+</html>
+ 
+  
+                 * {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: linear-gradient(45deg, #0087c5, #ff6f61);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cont { 
+  display: grid;
+  width: 600px;
+  grid-template-columns: repeat(10, 1fr);
+  margin: 0px 0 0px 0;
+}
+
+.cont div {
+  width: 60px;
+  height: 60px;
+  border: 0.2px solid black;
+}
+
+.leave {
+  position: absolute;
+  left:1150px;
+  top: 20px;
+  border: red;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: crimson;
+  font-size: 25px;
+  margin-right: 1300px;
+  font-family: monospace;
+  font-weight: bolder;
+  margin-left: 20px;
+}
+
+#p1,
+#p2 {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  background-color: rgb(236, 82, 82);
+  position: relative;
+  border: 3px solid black;
+
+  /* position: absolute; */
+}
+
+#p1 {
+  position: relative;
+  top: 0px;
+  transition: all linear 0.5s;
+  /* top: 0; */
+  left: -62px;
+  z-index: 2;
+}
+
+#p2 {
+  z-index: 2;
+  position: relative;
+  top: -55px;
+  left: -62px;
+  transition: all linear 0.5s;
+  background-color: rgb(243, 181, 46);
+}
+
+img {
+  position: relative;
+  top: -615px;
+  left: 8px;
+  /* z-index: -1; */
+  margin: 0;
+  width: 615px;
+  height: 615px;
+}
+#diceCont {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 200px;
+  left: 120px;
+  font-size: 2rem;
+  z-index: 99;
+}
+#diceBtn {
+  z-index: 99;
+  padding: 5px;
+  cursor: pointer;
+  background-color: rgb(75, 140, 197);
+  border-radius: 5px;
+  width: 200px;
+}
+
+@media (max-width: 1250px) {
+  
+  #diceCont {
+    display: flex;
+    place-items: none;
+    top: 92vh;
+    left: 36vw;
+    border: 2px solid red;
+  }
+  #diceBtn {
+    width: 200px;
+    margin-left: 20px;
+  }
+}
+@media (max-width: 1250px) {
+  
+  #diceCont {
+    display: flex;
+    place-items: none;
+    top: 99vh;
+    left: 10vw;
+    /* border: 2px solid red; */
+  }
+  #diceBtn {
+    width: 200px;
+    margin-left: 20px;
+  }
+}
+
+
+let tog = 1;
+let rollingSound = new Audio('rpg-dice-rolling-95182.mp3');
+let winSound = new Audio('winharpsichord-39642.mp3');
+
+let p1sum = 0;
+let p2sum = 0;
+
+const questions = [
+    { q: "These are the abundant gases in the stellar evolution.", options: ["Nitrogen and Chlorine", "Helium and Hydrogen"], answer: 1 },
+    { q: "When carbon fuses, what element is formed?", options: ["Neon", "Hydrogen"], answer: 0 },
+    { q: "In stellar nucleosynthesis, when silicon fuses what element is formed?", options: ["Iron", "Magnesium"], answer: 0 },
+    { q: "In the main sequence star, what happens if the fusion stops?", options: ["The energy in the core increases.", "The chemical reaction in the core stops."], answer: 1 },
+    { q: "The energy detected in star formation.", options: ["Infrared radiation", "Ultraviolet ray"], answer: 0 },
+    { q: "When magnesium fuses, what element is formed?", options: ["Neon", "Silicon"], answer: 1 },
+    { q: "It is a device used to speed up protons using magnetic and electrical fields.", options: ["Spectroscopy", "Particle Accelerator"], answer: 1 },
+    { q: "He created a classification of elements based on atomic weight.", options: ["Moseley", "Mendeleev"], answer: 1 },
+    { q: "It is a one-dimensional point which contains a huge mass in an infinitely small space.", options: ["Nucleosynthesis", "Singularity"], answer: 1 },
+    { q: "He noticed that shooting electrons at elements caused them to release x-rays at unique frequencies.", options: ["Mendeleev", "Moseley"], answer: 1 },
+    { q: "What do you call the relative ability of a bonded atom to attract shared electron pairs?", options: ["Electron affinity", "Electronegativity"], answer: 1 },
+    { q: "Which of the following molecules is tetrahedral?", options: ["BF3", "CH4"], answer: 1 },
+    { q: "Which of the following IMFAs is considered as the weakest?", options: ["H-bonding", "London forces"], answer: 1 },
+    { q: "Which of the following substances will dissolve most likely in water?", options: ["Vinegar (CH3COOH)", "Carbon tetrachloride (CCl4)"], answer: 0 },
+    { q: "Which of the following molecules has high melting point?", options: ["BCl3", "BeCl2"], answer: 1 },
+    { q: "What is the smallest particle of an element that retains its chemical properties?", options: ["Atom", "Molecule"], answer: 0 },
+    { q: "Which law states that the volume of a gas is inversely proportional to its pressure at constant temperature?", options: ["Boyle's Law", "Charles' Law"], answer: 0 },
+    { q: "What type of chemical bond involves the sharing of electron pairs between atoms?", options: ["Ionic Bond", "Covalent Bond"], answer: 1 },
+    { q: "Which subatomic particle is negatively charged?", options: ["Proton", "Electron"], answer: 1 },
+    { q: "Which of the following is an example of a homogeneous mixture?", options: ["Saltwater", "Salad"], answer: 0 },
+    { q: "Which form of energy is associated with the movement of charged particles?", options: ["Thermal Energy", "Electrical Energy"], answer: 1 },
+    { q: "Which scientist formulated the laws of motion?", options: ["Isaac Newton", "Albert Einstein"], answer: 0 },
+    { q: "Which of the following is a property of nonmetals?", options: ["Good conductor of heat", "Poor conductor of electricity"], answer: 1 },
+    { q: "What is the most abundant element in the Earth's crust?", options: ["Oxygen", "Silicon"], answer: 0 },
+    { q: "Which of the following electromagnetic waves has the highest frequency?", options: ["Radio waves", "Gamma rays"], answer: 1 },
+    { q: "What is the SI unit of energy?", options: ["Newton", "Joule"], answer: 1 },
+    { q: "Which of the following forces is responsible for objects staying in orbit?", options: ["Friction", "Gravity"], answer: 1 },
+    { q: "What type of chemical reaction involves a substance combining with oxygen to release energy?", options: ["Combustion", "Decomposition"], answer: 0 },
+    { q: "What is the name of the force that resists the motion of objects moving through air?", options: ["Tension", "Air resistance"], answer: 1 },
+    { q: "What subatomic particle has a positive charge?", options: ["Electron", "Proton"], answer: 1 },
+    { q: "Which law states that an object at rest stays at rest unless acted upon by an external force?", options: ["Newton's First Law", "Newton's Third Law"], answer: 0 },
+    { q: "Which of the following is an example of potential energy?", options: ["A moving car", "A stretched rubber band"], answer: 1 },
+    { q: "Which of the following is a renewable source of energy?", options: ["Coal", "Solar"], answer: 1 },
+    { q: "Which part of the atom contains protons and neutrons?", options: ["Nucleus", "Electron cloud"], answer: 0 },
+    { q: "What happens to the pressure of a gas if its temperature increases while volume is kept constant?", options: ["Increases", "Decreases"], answer: 0 },
+    { q: "What type of reaction involves two elements or compounds combining to form a more complex substance?", options: ["Synthesis", "Decomposition"], answer: 0 }
+];
+
+
+function askQuestion(callback) {
+    if (askedQuestions.size === questions.length) {
+        askedQuestions.clear(); // Reset when all questions are asked
+    }
+    let qIndex;
+    do {
+        qIndex = Math.floor(Math.random() * questions.length);
+    } while (askedQuestions.has(qIndex));
+    
+    askedQuestions.add(qIndex);
+    let qObj = questions[qIndex];
+    
+    let questionBox = document.getElementById("questionBox");
+    let questionText = document.getElementById("questionText");
+    let optionA = document.getElementById("optionA");
+    let optionB = document.getElementById("optionB");
+    
+    questionText.innerText = qObj.q;
+    optionA.innerText = qObj.options[0];
+    optionB.innerText = qObj.options[1];
+    
+    questionBox.style.display = "block";
+    
+    optionA.onclick = () => checkAnswer(0, qObj.answer, callback);
+    optionB.onclick = () => checkAnswer(1, qObj.answer, callback);
+}
+
+
+
+
+function selectCharacter(element, characterName, characterImage) {
+    if (!localStorage.getItem('player1Character')) {
+        localStorage.setItem('player1Character', JSON.stringify({ name: characterName, image: characterImage }));
+        alert('Player 1 selected ' + characterName);
+    } else if (!localStorage.getItem('player2Character')) {
+        localStorage.setItem('player2Character', JSON.stringify({ name: characterName, image: characterImage }));
+        alert('Player 2 selected ' + characterName);
+    } else {
+        alert('Both players have already selected characters!');
+    }
+    element.classList.add('selected');
+}
+
+function displaySelectedCharacters() {
+    let player1Character = JSON.parse(localStorage.getItem('player1Character'));
+    let player2Character = JSON.parse(localStorage.getItem('player2Character'));
+
+    if (player1Character) {
+        document.getElementById('player1Image').src = player1Character.image;
+        document.getElementById('player1Name').innerText = player1Character.name;
+    }
+    if (player2Character) {
+        document.getElementById('player2Image').src = player2Character.image;
+        document.getElementById('player2Name').innerText = player2Character.name;
+    }
+}
+
+function askQuestion(callback) {
+    let qIndex = Math.floor(Math.random() * questions.length);
+    let qObj = questions[qIndex];
+    
+    let questionBox = document.getElementById("questionBox");
+    let questionText = document.getElementById("questionText");
+    let optionA = document.getElementById("optionA");
+    let optionB = document.getElementById("optionB");
+    
+    questionText.innerText = qObj.q;
+    optionA.innerText = qObj.options[0];
+    optionB.innerText = qObj.options[1];
+    
+    questionBox.style.display = "block";
+    
+    optionA.onclick = () => checkAnswer(0, qObj.answer, callback);
+    optionB.onclick = () => checkAnswer(1, qObj.answer, callback);
+}
+
+function checkAnswer(selected, correct, callback) {
+    document.getElementById("questionBox").style.display = "none";
+    if (selected === correct) {
+        alert("Correct! You may move.");
+        callback(true);
+    } else {
+        alert("Wrong! You lose your turn.");
+        callback(false);
+    }
+}
+
+function play(player, psum, correction, num) {
+    let sum;
+    if (psum === 'p1sum') {
+        p1sum += num;
+        if (p1sum > 100) p1sum -= num;
+        sum = p1sum;
+    } else {
+        p2sum += num;
+        if (p2sum > 100) p2sum -= num;
+        sum = p2sum;
+    }
+    
+    if (sum === 100) {
+        winSound.play();
+        alert(`${player === 'p1' ? 'Player 1' : 'Player 2'} Won!!`);
+        location.reload();
+    }
+
+    document.getElementById(player).style.transition = `linear all .5s`;
+
+    let row = Math.floor((sum - 1) / 10);
+    let col = (sum - 1) % 10;
+    if (row % 2 !== 0) col = 9 - col;
+
+    document.getElementById(player).style.left = `${col * 62}px`;
+    document.getElementById(player).style.top = `${-row * 62 - correction}px`;
+}
+
+document.getElementById("diceBtn").addEventListener("click", function () {
+    rollingSound.play();
+    let num = Math.floor(Math.random() * 6) + 1;
+    document.getElementById("dice").innerText = num;
+
+    askQuestion(correct => {
+        if (!correct) {
+            tog++;
+            document.getElementById('tog').innerText = tog % 2 === 0 ? "Player 2's Turn:" : "Player 1's Turn:";
+            return;
+        }
+
+        if (tog % 2 !== 0) {
+            document.getElementById('tog').innerText = "Player 2's Turn:";
+            play('p1', 'p1sum', 0, num);
+        } else {
+            document.getElementById('tog').innerText = "Player 1's Turn:";
+            play('p2', 'p2sum', 55, num);
+        }
+        tog++;
+    });
+});
+
+window.onload = function () {
+    displaySelectedCharacters();
+};
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            background-color: #f3f4f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #2f584f, #ff6f61);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            cursor: url('https://cdn.iconscout.com/icon/free/png-256/arrow-228-459951.png'), auto;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        .title {
+            font-size: 60px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2f584f;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .text {
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+            background-color: #f9fafb;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .text:focus {
+            border-color: #2f584f;
+            background-color: #e9f5f2;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button input {
+            padding: 15px 30px;
+            width: 250px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #customize {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        #customize:hover {
+            background-color: #ff8a7d;
+            transform: scale(1.05);
+
+        }
+
+        /* Real-time validation */
+        .invalid-input {
+            border-color: red;
+            background-color: #f8d7da;
+        }
+
+        .valid-input {
+            border-color: green;
+            background-color: #d4edda;
+        }
+
+     
+        .loading.active {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="title">PhyScizz</h1>
+    <input type="text" class="text" placeholder="Enter Player Name" id="playerNameInput">
+    <div class="divider"></div>
+    <div class="button">
+        <input type="button" id="customize" value="Play" onclick="location.href='custom.html';">
+    </div>
+    <div class="loading" id="loadingSpinner">
+       
+    </div>
+</div>
+
+<script>
+    const playerNameInput = document.getElementById('playerNameInput');
+    const playButton = document.getElementById('play');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+
+    playerNameInput.addEventListener('input', function() {
+        const playerName = playerNameInput.value.trim();
+
+        if (playerName) {
+            playerNameInput.classList.remove('invalid-input');
+            playerNameInput.classList.add('valid-input');
+            playButton.disabled = false;
+        } else {
+            playerNameInput.classList.remove('valid-input');
+            playerNameInput.classList.add('invalid-input');
+            playButton.disabled = true;
+        }
+    });
+
+    function playGame() {
+        const playerName = playerNameInput.value.trim();
+        if (playerName) {
+            loadingSpinner.classList.add('active');
+            setTimeout(() => {
+                window.location.href = "questions.html";
+            }, 0); // simulate loading
+        }
+    }
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="game.css">
+    <style>
+        #questionBox {
+            text-align: center;
+            align-content: center;
+        }
+        #questionText {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #optionA {
+            border: 1px black solid;
+            border-radius: 5px;
+            background-color: rgb(255, 114, 114);
+            width: auto;
+            height: 40px;
+            padding: 5px;
+        }
+        #optionB {
+            border: 1px black solid;
+            border-radius: 5px;
+            background-color: rgb(114, 255, 149);
+            width: auto;
+            height: 40px;
+            padding: 5px;
+        }
+        #optionA:hover {
+            border: 1px black solid;
+            border-radius: 5px;
+            background-color: rgb(255, 84, 84);
+            color: white;
+            width: 70px;
+            height: 40px;
+            cursor: pointer;
+        }
+        #optionB:hover {
+            border: 1px black solid;
+            border-radius: 5px;
+            background-color: rgb(97, 179, 117);
+            color: white;
+            width: 70px;
+            height: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <h1>Snakes and ladder</h1>
+
+    <input type="button" value="Leave" class="leave" onclick="location.href='homepage2.html';">
+
+    <div id="diceCont">
+        <p id="tog">Player 1's Turn : </p>
+        <p id="dice">0</p>
+        <button id="diceBtn">ROLL</button>
+    </div>
+    <div id="questionBox" style="display: none;">
+        <p id="questionText"></p>
+        <button id="optionA"></button>
+        <button id="optionB"></button>
+    </div>
+    
+    
+
+
+    <div class="cont">
+        <div class="box" id="b100">
+
+        </div>
+        <div class="box" id="b99">
+
+        </div>
+        <div class="box" id="b98">
+
+        </div>
+        <div class="box" id="b97">
+
+        </div>
+        <div class="box" id="b96">
+
+        </div>
+        <div class="box" id="b95">
+
+        </div>
+        <div class="box" id="b94">
+
+        </div>
+        <div class="box" id="b93">
+
+        </div>
+        <div class="box" id="b92">
+
+        </div>
+        <div class="box" id="b91">
+
+        </div>
+        <div class="box" id="b81">
+
+        </div>
+        <div class="box" id="b82">
+
+        </div>
+        <div class="box" id="b83">
+
+        </div>
+        <div class="box" id="b84">
+
+        </div>
+        <div class="box" id="b85">
+
+        </div>
+        <div class="box" id="b86">
+
+        </div>
+        <div class="box" id="b87">
+
+        </div>
+        <div class="box" id="b88">
+
+        </div>
+        <div class="box" id="b89">
+
+        </div>
+        <div class="box" id="b90">
+
+        </div>
+        <div class="box" id="b80">
+
+        </div>
+        <div class="box" id="b79">
+
+        </div>
+        <div class="box" id="b78">
+
+        </div>
+        <div class="box" id="b77">
+
+        </div>
+        <div class="box" id="b76">
+
+        </div>
+        <div class="box" id="b75">
+
+        </div>
+        <div class="box" id="b74">
+
+        </div>
+        <div class="box" id="b73">
+
+        </div>
+        <div class="box" id="b72">
+
+        </div>
+        <div class="box" id="b71">
+
+        </div>
+        <div class="box" id="b61">
+
+        </div>
+        <div class="box" id="b62">
+
+        </div>
+        <div class="box" id="b63">
+
+        </div>
+        <div class="box" id="b64">
+
+        </div>
+        <div class="box" id="b65">
+
+        </div>
+        <div class="box" id="b66">
+
+        </div>
+        <div class="box" id="b67">
+
+        </div>
+        <div class="box" id="b68">
+
+        </div>
+        <div class="box" id="b69">
+
+        </div>
+        <div class="box" id="b70">
+
+        </div>
+        <div class="box" id="b60">
+
+        </div>
+        <div class="box" id="b59">
+
+        </div>
+        <div class="box" id="b58">
+
+        </div>
+        <div class="box" id="b57">
+
+        </div>
+        <div class="box" id="b56">
+
+        </div>
+        <div class="box" id="b55">
+
+        </div>
+        <div class="box" id="b54">
+
+        </div>
+        <div class="box" id="b53">
+
+        </div>
+        <div class="box" id="b52">
+
+        </div>
+        <div class="box" id="b51">
+
+        </div>
+        <div class="box" id="b41">
+
+        </div>
+        <div class="box" id="b42">
+
+        </div>
+        <div class="box" id="b43">
+
+        </div>
+        <div class="box" id="b44">
+
+        </div>
+        <div class="box" id="b45">
+
+        </div>
+        <div class="box" id="b46">
+
+        </div>
+        <div class="box" id="b47">
+
+        </div>
+        <div class="box" id="b48">
+
+        </div>
+        <div class="box" id="b49">
+
+        </div>
+        <div class="box" id="b50">
+
+        </div>
+        <div class="box" id="b40">
+
+        </div>
+        <div class="box" id="b39">
+
+        </div>
+        <div class="box" id="b38">
+
+        </div>
+        <div class="box" id="b37">
+
+        </div>
+        <div class="box" id="b36">
+
+        </div>
+        <div class="box" id="b35">
+
+        </div>
+        <div class="box" id="b34">
+
+        </div>
+        <div class="box" id="b33">
+
+        </div>
+        <div class="box" id="b32">
+
+        </div>
+        <div class="box" id="b31">
+
+        </div>
+        <div class="box" id="b21">
+
+        </div>
+        <div class="box" id="b22">
+
+        </div>
+        <div class="box" id="b23">
+
+        </div>
+        <div class="box" id="b24">
+
+        </div>
+        <div class="box" id="b25">
+
+        </div>
+        <div class="box" id="b26">
+
+        </div>
+        <div class="box" id="b27">
+
+        </div>
+        <div class="box" id="b28">
+
+        </div>
+        <div class="box" id="b29">
+
+        </div>
+        <div class="box" id="b30">
+
+        </div>
+        <div class="box" id="b20">
+
+        </div>
+        <div class="box" id="b19">
+
+        </div>
+        <div class="box" id="b18">
+
+        </div>
+        <div class="box" id="b17">
+
+        </div>
+        <div class="box" id="b16">
+
+        </div>
+        <div class="box" id="b15">
+
+        </div>
+        <div class="box" id="b14">
+
+        </div>
+        <div class="box" id="b13">
+
+        </div>
+        <div class="box" id="b12">
+
+        </div>
+        <div class="box" id="b11">
+
+        </div>
+        <div class="box" id="b01">
+
+            <img src="" id="p1">
+            <img src="" id="p2">
+
+        </div>
+        <div class="box" id="b02">
+
+        </div>
+        <div class="box" id="b03">
+
+        </div>
+        <div class="box" id="b04">
+
+        </div>
+        <div class="box" id="b05">
+
+        </div>
+        <div class="box" id="b06">
+
+        </div>
+        <div class="box" id="b07">
+
+        </div>
+        <div class="box" id="b08">
+
+        </div>
+        <div class="box" id="b09">
+
+        </div>
+        <div class="box" id="b10">
+
+        </div>
+
+
+
+
+
+    </div>
+
+    <img src="snake ladder.png">
+
+
+
+</body>
+<script src="game.js">
+        
+</script>
+<script>
+
+    window.onload = function () {
+        // Retrieve stored character data for both players
+        const player1Character = JSON.parse(localStorage.getItem('player1Character'));
+        const player2Character = JSON.parse(localStorage.getItem('player2Character'));
+
+        if (player1Character) {
+            // Set Player 1 image from the stored data
+            document.getElementById('p1').src = player1Character.image;
+            document.getElementById('p1').style.display = 'block'; // Ensure the image is visible
+        } else {
+            console.log("No character selected for Player 1.");
+            // Optionally display a placeholder or error message for Player 1
+            document.getElementById('p1').style.display = 'none'; // Hide the player image if not set
+        }
+
+        if (player2Character) {
+            // Set Player 2 image from the stored data
+            document.getElementById('p2').src = player2Character.image;
+            document.getElementById('p2').style.display = 'block'; // Ensure the image is visible
+        } else {
+            console.log("No character selected for Player 2.");
+            // Optionally display a placeholder or error message for Player 2
+            document.getElementById('p2').style.display = 'none'; // Hide the player image if not set
+        }
+    };
+</script>
+
+    
+
+
+</html>
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Game Board */
+#board {
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    grid-template-rows: repeat(5, 100px);
+    gap: 5px;
+    border: 5px solid #000;
+    padding: 10px;
+    background-color: #ddd;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    position: relative;
+}
+
+/* Positive & Negative Effect Platforms */
+.cell.negative {
+    background-color: lightcoral;
+}
+
+.cell.positive {
+    background-color: lightgreen;
+}
+
+/* Player Character */
+.player {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Buttons */
+button {
+    margin: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
